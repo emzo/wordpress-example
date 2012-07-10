@@ -26,7 +26,7 @@ while [ $RETRY -gt 0 ] ; do
     #check for db
     if [ -n "$OPENSHIFT_DB_HOST" ]
     then
-        echo "Database server found at $OPENSHIFT_DB_HOST. initializing..."
+        echo "Database server found at $OPENSHIFT_DB_HOST"
         sleep 5
         break
     fi
