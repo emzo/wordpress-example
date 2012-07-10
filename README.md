@@ -36,25 +36,12 @@ That's it, you can now checkout your application at:
 
     http://wordpress-$yournamespace.rhcloud.com
     
-Default Credentials
--------------------
-<table>
-<tr><td>Default Admin Username</td><td>admin</td></tr>
-<tr><td>Default Admin Password</td><td>OpenShiftAdmin</td></tr>
-</table>
-
 Notes
 =====
 
 GIT_ROOT/.openshift/action_hooks/deploy:
     This script is executed with every 'git push'.  Feel free to modify this script
-    to learn how to use it to your advantage.  By default, this script will create
-    the database tables that this example uses.
-
-    If you need to modify the schema, you could create a file 
-    GIT_ROOT/.openshift/action_hooks/alter.sql and then use
-    GIT_ROOT/.openshift/action_hooks/deploy to execute that script (make sure to
-    back up your application + database w/ 'rhc app snapshot save' first :) )
+    to learn how to use it to your advantage.
 
 Security Considerations
 -----------------------
