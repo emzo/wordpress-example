@@ -1,1 +1,6 @@
-.project
+/php/local-config.php
+/php/sql-dump-*.sql
+/php/db-sync
+/php/content/upgrade/
+/php/content/uploads/
+.DS_Store
