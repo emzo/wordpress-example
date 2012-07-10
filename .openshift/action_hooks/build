@@ -3,8 +3,28 @@
 # available.  Otherwise it will execute while your application is stopped
 # before the deploy step.  This script gets executed directly, so it
 # could be python, php, ruby, etc.
+
+# Allow installation of Plugins from the admin screen without them getting
+# wiped after each build.
+if [ ! -d $OPENSHIFT_DATA_DIR/plugins ]; then
+    mkdir $OPENSHIFT_DATA_DIR/plugins
+fi
+ 
+# Allow installation of Themes from the admin screen without them getting
+# wiped after each build.
+if [ ! -d $OPENSHIFT_DATA_DIR/themes ]; then
+    mkdir $OPENSHIFT_DATA_DIR/themes
+fi
+
+if [ ! -h $OPENSHIFT_DATA_DIR/themes/twentyten ]; then
+    ln -sf $OPENSHIFT_REPO_DIR/php/content/themes/twentyten $OPENSHIFT_DATA_DIR/themes/twentyten
+fi
+ 
+if [ ! -h $OPENSHIFT_DATA_DIR/themes/twentyeleven ]; then
+    ln -sf $OPENSHIFT_REPO_DIR/php/content/themes/twentyeleven $OPENSHIFT_DATA_DIR/themes/twentyeleven
+fi
+ 
+# Allow uploaded files to persist between builds by keeping them in OPENSHIFT_DATA_DIR
 if [ ! -d $OPENSHIFT_DATA_DIR/uploads ]; then
     mkdir $OPENSHIFT_DATA_DIR/uploads
 fi
- 
-ln -sf $OPENSHIFT_DATA_DIR/uploads $OPENSHIFT_REPO_DIR/php/wp-content/
